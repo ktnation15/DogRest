@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Hundekennel</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Dogs</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="dog in Dogs" :key="dog.id">
+                    <td>{{ dog.id }}</td>
+                    <td>{{ dog.name }}</td>
+                    <td>{{ dog.age }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <input type="number" id="dogId" v-model="Dog.Id" placeholder="Enter Id">
+        <input type="text" id="dogName" v-model="Dog.Name" placeholder="Enter Name">
+        <input type="number" id="dogAge" v-model="Dog.Age" placeholder="Enter Age">
+        <button class="btn btn-primary" @click="addDog">Add Dog</button>
+        
+        <br> </br>
+        <input type="number" id="getDogId" v-model="GetDog.Id" placeholder="Enter Id">
+        <button class="btn btn-primary" @click="getById(GetDog.Id)">Get Dog</button>
+        {{GetDogs}}
+        <input type="number" id="deleteDogId" v-model="deleteId" placeholder="Enter Id">
+        <button class="btn btn-primary" @click="deleteDog(deleteId)">Delete Dog</button>
+        <div v-if="GetDog">
+            <p>Dog ID: {{GetDog.Id}}</p>
+            <!-- Add other properties of the dog here -->
+        </div>
+    </div>
+    <script src="index.js"></script>
+    
+</body>
+</html>
